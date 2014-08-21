@@ -13,6 +13,8 @@
   <title><?php  wp_title( '| ', true, 'right' );  ?></title>
   <?php // Load our CSS ?>
   <link rel="stylesheet" type="text/css"  href="<?php bloginfo( 'stylesheet_url' ); ?>" />
+  <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
   
 	<?php	if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' ); wp_head(); ?>
 
@@ -26,20 +28,19 @@
 
 <header class="clearfix">
   <div class="innerWrapper clearfix">
-	
-    <h1>
-      <a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-        <?php bloginfo( 'name' ); ?>
-      </a>
-    </h1>
-
-    <nav class="main-nav">
-      <ul class="menu-main-menu">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#blog">Blog</a></li>
-        <li><a href="#contact">Contact</a></li>
+  	<div class="logo">
+      <h1>
+        <a data-id="home" class="scroll-link" href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+          <?php bloginfo( 'name' ); ?>
+        </a>
+      </h1>
+    </div>
+    <nav class="main-nav clearfix" id="main-nav">
+      <ul class="main-nav-menu">
+        <li><a data-id="about" class="scroll-link" href="#about">About</a></li>
+        <li><a data-id="portfolio" class="scroll-link" href="#portfolio">Portfolio</a></li>
+        <li><a data-id="blog" class="scroll-link" href="#blog">Blog</a></li>
+        <li><a data-id="contact" class="scroll-link" href="#contact">Contact</a></li>
       </ul>
     </nav>
   </div> <!-- /.innerWrapper -->

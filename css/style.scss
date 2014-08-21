@@ -58,7 +58,8 @@ img.alignright    { padding-left: 5px; }
   border:none;
 }
 
-$link: #E22750;
+$text:#335;
+$link: #F22259;
 $footer: #ededed;
 
 
@@ -68,7 +69,11 @@ $footer: #ededed;
    ========================================================================== */
 
 body {
-  color:#335;
+  color:$text;
+}
+
+body, html {
+  height: 100%;
 }
 
 h1, h2, h3 {
@@ -76,11 +81,11 @@ h1, h2, h3 {
 }
 
 h2 {
-  @include fontify (32px, 300, 1.5em);
+  @include fontify (32px, 300, 0.5em);
 }
 
 h3 {
-  @include fontify(24px, 400, 1.5em);
+  @include fontify(24px, 300, 1.5em);
 }
 
 p {
@@ -91,7 +96,7 @@ p {
 
 
 a {
-  color:#E22750;
+  color:$link;
   text-decoration: none;
 }
 
@@ -101,7 +106,7 @@ li {
 
 .innerWrapper {
   max-width:1400px;
-  width: 80%;
+  width: 70%;
   margin:0 auto;
 }
 
@@ -148,29 +153,152 @@ li {
    ========================================================================== */
 header {
   width: 100%;
-  background-color: salmon;
+  background-color: white;
+  position:fixed;
+  transition: all 0.5s ease-in-out;
 }
 
-header .innerWrapper {
-
-}
-
-
-  ul.menu {
-    margin:0;
-    padding:0;
-  }
-    ul.menu li {
-      display:inline;
-      margin-right: 10px;
+header.sticky {
+  background-color: $link;
+  nav.main-nav ul li a {
+    color:white;
+    opacity:.7;
+    &:after {
+      background-color: white;
     }
+    &:hover {
+      opacity:1;
+    }
+  }
+}
 
-      ul.menu li a {
-        color:#333;
-        padding:10px;
-        background:#333;
-        color:white;
-      }
+
+header .logo {
+  float:left;
+  width: 30%;
+  h1 {
+    @include fontify(24px, 700, 1.5em);
+    text-transform: uppercase;
+  }
+  a {
+    color:$text;
+  }
+}
+
+nav {
+  float:left;
+  width: 70%;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul.main-nav-menu {
+  margin:0;
+  padding:0;
+  float:right;
+  li {
+    // display:inline-block;
+    float:left;
+    padding: 0;
+  }
+  a {
+    font-family: oswald;
+    @include fontify(18px, 300, 1.2em);
+    letter-spacing: 1px;
+    color:$link;
+    opacity:0.8;
+    position: relative;
+    display:inline-block;
+    padding: 25px 30px;
+    &:after {
+      position: absolute;
+      top: 96%;
+      width: 100%;
+      left:0;
+      height: 1px;
+      background: $link;
+      content: '';
+      opacity: 0;
+      transition: height 0.3s, opacity 0.3s, transform 0.3s;
+      transform: translateY(-20px);    
+    }
+    &:hover {
+      opacity:1;
+    }
+    &:hover:after {
+      height: 3px;
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+}
+
+
+
+/* =============================================================================
+                   Hero
+   ========================================================================== */
+
+section.hero {
+  background:url(images/header-placehoder.png);
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100%;
+  padding: 250px 0;
+
+    h1 {
+      @include fontify(52px, 700, 1.2em);
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+    }
+    h2 {
+      @include fontify(24px, 300, 1.2em);
+      margin-top:0;
+    }
+}
+
+
+/* =============================================================================
+                   Main content
+   ========================================================================== */
+
+
+#about, #skills, #portfolio, #blog, #contact {
+  padding: 50px 0;
+}
+
+
+
+/* =============================================================================
+                   About
+   ========================================================================== */
+
+
+#about {
+  .about-image {
+    @include column(3); 
+    padding-top: 50px;
+    img {
+      float:left;
+      border-radius: 50%;
+    }
+  }
+  .text {
+    @include column(9);
+  }
+}
+
+
+
+/* =============================================================================
+                   Portfolio
+   ========================================================================== */
+
+section.portfolio {
+  background-color: blue;
+}
+
+
 
 
 /* =============================================================================
