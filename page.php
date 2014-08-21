@@ -1,5 +1,6 @@
 <?php get_header();  ?>
 
+
 <div class="section">
   <div class="innerWrapper">
     <div class="left">

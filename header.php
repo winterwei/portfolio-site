@@ -18,26 +18,30 @@
 
 	<!--[if lt IE 9]> <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script> <![endif]-->
 
-  <!-- Load jQuery and our own scripts file -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script>!window.jQuery && document.write('<script src="<?php bloginfo('template_directory');?>/js/jQuery.js"><\/script>')</script>
-	<script src="<?php bloginfo('stylesheet_directory');?>/js/scripts.js"></script>
+
 </head>
 
 
 <body <?php body_class(); ?>>
 
-<div class="header">
-  <div class="innerWrapper">
+<header class="clearfix">
+  <div class="innerWrapper clearfix">
 	
     <h1>
       <a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
         <?php bloginfo( 'name' ); ?>
       </a>
     </h1>
-	
-    <?php wp_nav_menu( array( 'container' => false, 'menu' => 'header' ) ); ?>
 
+    <nav class="main-nav">
+      <ul class="menu-main-menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </div> <!-- /.innerWrapper -->
-</div><!--/.header-->
+</header><!--/.header-->
 
