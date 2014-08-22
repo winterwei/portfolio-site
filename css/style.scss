@@ -60,6 +60,7 @@ img.alignright    { padding-left: 5px; }
 
 $text:#335;
 $link: #F22259;
+$theBlue: #BFD0DC;
 $footer: #ededed;
 
 
@@ -155,6 +156,7 @@ header {
   width: 100%;
   background-color: white;
   position:fixed;
+  z-index: 999;
   transition: all 0.5s ease-in-out;
 }
 
@@ -175,7 +177,8 @@ header.sticky {
 
 header .logo {
   float:left;
-  width: 30%;
+  @include column(3);
+  // width: 30%;
   h1 {
     @include fontify(24px, 700, 1.5em);
     text-transform: uppercase;
@@ -186,8 +189,9 @@ header .logo {
 }
 
 nav {
-  float:left;
-  width: 70%;
+  // float:left;
+  // width: 70%;
+  @include column(9);
   margin: 0;
   padding: 0;
 }
@@ -262,9 +266,8 @@ section.hero {
                    Main content
    ========================================================================== */
 
-
 #about, #skills, #portfolio, #blog, #contact {
-  padding: 50px 0;
+  padding: 40px 0;
 }
 
 
@@ -285,6 +288,7 @@ section.hero {
   }
   .text {
     @include column(9);
+    padding-bottom: 50px;
   }
 }
 
@@ -295,8 +299,68 @@ section.hero {
    ========================================================================== */
 
 section.portfolio {
-  background-color: blue;
+  background-color: $theBlue;
 }
+
+#portfolio {
+  width: 100%;
+  @include column(12);
+  .col2 {
+    &:nth-child(2n) {
+      margin-left: 0;
+    }
+    @include column(6);
+    background-color: white;
+    margin-bottom: 30px;
+    padding: 30px 20px;
+    figure {
+      text-align: center;
+      img {
+        box-shadow: 0 1px 2px rgba(0,0,0,.2);      
+      }
+    }
+  }
+}
+
+.img-hover {
+  position: relative;
+  img {
+    max-width: 100%;
+  }
+  a {
+    position: absolute;
+    z-index:2;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    text-align: center;
+    padding-top: 32%;
+    font-size: 20px;
+    background:$link;
+    opacity:0;
+    &:hover {
+      opacity:0.9;
+      color:white;
+      font-weight: 300;
+    }
+  }
+}
+
+
+
+/* =============================================================================
+                   Portfolio
+   ========================================================================== */
+
+section.contact {
+  background-color: $theBlue;
+}
+
+#contact {
+  @include column(12);
+}
+
 
 
 
