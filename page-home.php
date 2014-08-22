@@ -40,7 +40,10 @@ get_header();  ?>
 <section class="portfolio main clearfix">
   <div class="innerWrapper clearfix">
     <div id="portfolio">
-      <h2>Things I've done</h2>
+      <div class="title clearfix">
+        <h2>Portfolio</h2>
+        <h3>Things I designed and built</h3>
+      </div>
         <?php 
           $portfolioQuery = new WP_Query(
               array(
@@ -49,16 +52,16 @@ get_header();  ?>
                 )
             ); ?>
         <?php while ($portfolioQuery->have_posts()) : $portfolioQuery->the_post(); ?>
-          <div class="col2">
-            <figure class="img-hover">
-              <?php the_post_thumbnail('large'); ?>
-              <a href="<?php the_permalink(); ?>">View Project</a>
-            </figure>
+            <figure class="col2">
+              <div class="img-hover">
+                <?php the_post_thumbnail('full'); ?>
+                <h3><a href="<?php the_permalink(); ?>">View Project</a></h3>
+              </div>
             <figcaption>
               <h4><?php the_field('portfolio_title') ?></h4>
               <p><?php the_field('short_description') ?></p>
             </figcaption>
-          </div>
+            </figure>
         <?php endwhile; // end the loop?>
         <?php wp_reset_postdata(); ?>
     </div>
@@ -69,18 +72,21 @@ get_header();  ?>
 <section class="blog main clearfix">
   <div class="innerWrapper clearfix">
     <div id="blog">
+    <div class="title clearfix">
+      <h2>Recent Blog</h2>
+    </div>
       <?php 
         $blogQuery = new WP_Query(
             array(
-              'posts_per_page' => 2,
+              'posts_per_page' => 3,
               'post_type' => 'post'
               )
           ); ?>
       <?php while ($blogQuery->have_posts()) : $blogQuery->the_post(); ?>
-        <article class="col2">
-          <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-          <h3><?php the_excerpt(); ?></h3>
-          <p><?php the_field('blog_intro') ?></p>
+        <article class="col3">
+            <h3><a href="<?php the_field('blog_url') ?>"><?php the_title(); ?></a></h3>
+            <p><?php the_field('blog_intro') ?></p>
+            <h4><a href="<?php the_field('blog_url') ?>">Read More</a></h4>
         </article>
       <?php endwhile; // end the loop?>
       <?php wp_reset_postdata(); ?>
@@ -92,6 +98,9 @@ get_header();  ?>
 <section class="contact main clearfix">
   <div class="innerWrapper clearfix">
     <div id="contact">
+    <div class="title clearfix">
+      <h2>Contact Me</h2>
+    </div>
       <div class="contact-msg">
         <p><?php the_field('contact_message') ?></p>
       </div>

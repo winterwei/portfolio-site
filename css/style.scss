@@ -33,14 +33,13 @@ img.alignright    { padding-left: 5px; }
 @import '_grid';
 
 
-
-
 /* =============================================================================
                    Mixins & colors
    ========================================================================== */
-@mixin fontify($fs, $fw, $lh){
+@mixin fontify($fs, $fw, $ls, $lh){
   font-size: $fs;
   font-weight: $fw;
+  letter-spacing: $ls;
   line-height: $lh;
 }
 @mixin link-style{
@@ -61,6 +60,8 @@ img.alignright    { padding-left: 5px; }
 $text:#335;
 $link: #F22259;
 $theBlue: #BFD0DC;
+$blueShade: #94BAD3;
+$dark: #262027;
 $footer: #ededed;
 
 
@@ -82,17 +83,21 @@ h1, h2, h3 {
 }
 
 h2 {
-  @include fontify (32px, 300, 0.5em);
+  @include fontify (32px, 300, 0, 0.5em);
 }
 
 h3 {
-  @include fontify(24px, 300, 1.5em);
+  @include fontify(24px, 300, 0, 1.5em);
+}
+
+h4 {
+  @include fontify(18px, 400, 1px, 1em);
+  margin-bottom: 0;
 }
 
 p {
   font-family: lato;
-  @include fontify(18px, 300, 1.5em);
-  letter-spacing: 1px;
+  @include fontify(18px, 300, 0.5px, 1.5em);
 }
 
 
@@ -164,7 +169,7 @@ header.sticky {
   background-color: $link;
   nav.main-nav ul li a {
     color:white;
-    opacity:.7;
+    opacity:.8;
     &:after {
       background-color: white;
     }
@@ -180,7 +185,7 @@ header .logo {
   @include column(3);
   // width: 30%;
   h1 {
-    @include fontify(24px, 700, 1.5em);
+    @include fontify(24px, 700, 0, 1.5em);
     text-transform: uppercase;
   }
   a {
@@ -207,7 +212,7 @@ nav ul.main-nav-menu {
   }
   a {
     font-family: oswald;
-    @include fontify(18px, 300, 1.2em);
+    @include fontify(18px, 300, 0, 1.2em);
     letter-spacing: 1px;
     color:$link;
     opacity:0.8;
@@ -251,12 +256,11 @@ section.hero {
   padding: 250px 0;
 
     h1 {
-      @include fontify(52px, 700, 1.2em);
+      @include fontify(52px, 700, 2px, 1.2em);
       margin-bottom: 10px;
-      letter-spacing: 2px;
     }
     h2 {
-      @include fontify(24px, 300, 1.2em);
+      @include fontify(24px, 300, 0, 1.2em);
       margin-top:0;
     }
 }
@@ -267,7 +271,7 @@ section.hero {
    ========================================================================== */
 
 #about, #skills, #portfolio, #blog, #contact {
-  padding: 40px 0;
+  padding: 50px 0 80px;
 }
 
 
@@ -288,7 +292,7 @@ section.hero {
   }
   .text {
     @include column(9);
-    padding-bottom: 50px;
+    padding-bottom: 80px;
   }
 }
 
@@ -303,21 +307,31 @@ section.portfolio {
 }
 
 #portfolio {
-  width: 100%;
+  // max-width: 100%;
   @include column(12);
+  .title {
+    margin-bottom: 20px;
+  }
   .col2 {
     &:nth-child(2n) {
       margin-left: 0;
     }
     @include column(6);
     background-color: white;
-    margin-bottom: 30px;
-    padding: 30px 20px;
+    // max-width: 48%;
+    // float: left;
+    // margin-right: 1%;
+    margin-bottom: 3%;
+    padding:2% 0;
+    text-align: center;
     figure {
       text-align: center;
       img {
         box-shadow: 0 1px 2px rgba(0,0,0,.2);      
       }
+    }
+    figcaption {
+      padding: 0 30px;
     }
   }
 }
@@ -335,14 +349,15 @@ section.portfolio {
     left:0;
     right:0;
     text-align: center;
-    padding-top: 32%;
+    padding-top: 25%;
     font-size: 20px;
-    background:$link;
+    background:$text;
     opacity:0;
     &:hover {
-      opacity:0.9;
+      opacity:0.95;
       color:white;
       font-weight: 300;
+      font-size: 24px;
     }
   }
 }
@@ -363,6 +378,74 @@ section.contact {
 
 
 
+/* =============================================================================
+                   Blog
+   ========================================================================== */
+#blog {
+  // @include column(12);
+  width: 100%;
+  .title {
+    padding: 1.2%;
+  }
+  float: left;
+  .col3 {
+    // @include column(4);
+    width: 30%;
+    margin: 1.2%;
+    float:left;
+    height:300px;
+    background-color: $link;
+    padding: 0 20px;
+    a {
+      color:white;
+    } 
+  }
+  padding-bottom: 80px;
+}
+
+
+
+/* =============================================================================
+                   Contact
+   ========================================================================== */
+
+.contact-form {
+  @include column(12);
+  text-align: center;
+  input, textarea {
+    padding: 10px;
+    border:none;
+    &:focus {
+      outline:none;
+    }
+  }
+  ::-webkit-input-placeholder {
+    color:#F785A3;
+    font-family: Lato;
+    @include fontify(18px, 100, 0, 1.2em);
+  }
+
+  .your-name input{
+    @include column(6);
+    margin-bottom: 20px;
+    
+
+  }
+
+  .your-email input {
+    @include column(6);
+    margin-bottom: 20px;
+  }
+  .your-message textarea {
+    @include column(12);
+    margin-bottom: 20px;
+  }
+  input.wpcf7-submit {
+    // @include column(12);
+    padding: 10px 30px;
+  }
+
+}
 
 
 /* =============================================================================
