@@ -1,9 +1,19 @@
-<div class="footer">
-	<div class="innerWrapper">
-    <p>&copy; Your Name Here <?php echo date('Y'); ?></p>
+<footer class="footer clearfix">
+	<div class="innerWrapper clearfix">
+    <div class="social-media">
+    	<p class="fa fa-lg fa-inverse">
+    		<a href="http://twitter.com/winterwei"><i class="fa fa-twitter"></i></a>
+    		<a href="https://www.linkedin.com/in/winterwei"><i class="fa fa-linkedin"></i></a>
+    		<a href="https://github.com/winterwei"><i class="fa fa-github-alt"></i></a>
+    		<a href="http://codepen.io/winterwei/"><i class="fa fa-codepen"></i></a>
+    		<a href="https://www.behance.net/winterwei"><i class="fa fa-behance"></i></a>
+    	</p>
+    </div>
+
+
     <?php wp_footer(); ?>
   </div>
-</div>
+</footer>
 
 <script>
 
@@ -41,11 +51,16 @@
 
 			    if ($(window).scrollTop() > 500) {
 			        $('header').addClass('sticky');
+			        $('.scroll-top').show();
 			    } else {
 			        $('header').removeClass('sticky');
+			        $('.scroll-top').hide();
 			    }
 			});
 		});
+
+
+
 		// scroll function
 		function scrollToID(id, speed){
 			var offSet = 50;

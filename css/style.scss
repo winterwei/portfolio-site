@@ -61,6 +61,8 @@ $text:#335;
 $link: #F22259;
 $theBlue: #BFD0DC;
 $blueShade: #94BAD3;
+$blueShade2:#476176;
+$darkBlue: #374358;
 $dark: #262027;
 $footer: #ededed;
 
@@ -142,16 +144,6 @@ li {
       list-style: none;
     }
 
-
-
-
-/* =============================================================================
-                   Footer 
-   ========================================================================== */
-
-.footer {
-  clear:both;
-}
 
 
 /* =============================================================================
@@ -242,6 +234,13 @@ nav ul.main-nav-menu {
   }
 }
 
+/* hidden div for when nav item is clicked from non-homepage */
+.hidden{
+  display:block;
+  height:80px;
+  width: 100%;
+  // background-color: red;
+}
 
 
 /* =============================================================================
@@ -270,9 +269,37 @@ section.hero {
                    Main content
    ========================================================================== */
 
-#about, #skills, #portfolio, #blog, #contact {
+
+#contact {
   padding: 50px 0 80px;
 }
+
+/* back to top icon */
+a.scroll-top {
+  display:none;
+  position: fixed;
+  bottom: 80px;
+  right:50px;
+  z-index: 10;
+  div.circle{
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    background-color:rgba(0,0,0,.1);
+    &:hover {
+      background-color: lighten($link,10);
+      i.fa-angle-double-up {
+        color:rgba(255,255,255,0.9);
+      }
+    }
+    i.fa-angle-double-up {
+      color:lighten($link,10);
+      font-size: 24px;
+      top:4px;
+    }
+  }
+}
+
 
 
 
@@ -298,12 +325,14 @@ section.hero {
 
 
 
+
 /* =============================================================================
                    Portfolio
    ========================================================================== */
 
 section.portfolio {
-  background-color: $theBlue;
+  background-color: #ffe3e8;
+  padding-bottom: 80px;
 }
 
 #portfolio {
@@ -313,54 +342,70 @@ section.portfolio {
     margin-bottom: 20px;
   }
   .col2 {
-    &:nth-child(2n) {
+    &:nth-child(2n+1) {
       margin-left: 0;
     }
     @include column(6);
-    background-color: white;
-    // max-width: 48%;
-    // float: left;
-    // margin-right: 1%;
+    // background-color: $darkBlue;
     margin-bottom: 3%;
-    padding:2% 0;
+    // padding:2% 0;
     text-align: center;
     figure {
-      text-align: center;
+      width: 100%;
+      margin: 0 auto;
+      overflow: hidden;
+      // margin: 0;
+      position: relative;
+      transition: transform 0.4s, opacity;
+
       img {
-        box-shadow: 0 1px 2px rgba(0,0,0,.2);      
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: relative;
+        transition: transform 0.4s;
       }
-    }
-    figcaption {
-      padding: 0 30px;
+      figcaption {
+        position: absolute;
+        width: 100%;
+        height: 50%;
+        top:auto;
+        bottom:0;
+        padding: 0 20px;
+        background: white;
+        color: #ed4e6e;
+        opacity:0;
+        transform: translateY(100%);
+        transition: transform 0.4s, opacity 0.1s 0.3s;
+        h4 {
+          font-family: Oswald;
+          @include fontify(18px, 400, 0, 1.23em);
+        }
+        p {
+          // font-family: Oswald;
+          @include fontify(18px, 300, 0, 1.2em);
+          margin-top: 10px;
+        }
+        a {
+          font-family: Oswald;
+          padding: 5px 10px;
+          background: $link;
+          color:white;
+        }
+      }
+      &:hover img {
+        transform: translateY(-25%);
+      }
+
+      &:hover figcaption {
+        opacity:1;
+        transform: translateY(0px);
+        transition: transform 0.4s, opacity 0.1s;
+      }
     }
   }
 }
 
-.img-hover {
-  position: relative;
-  img {
-    max-width: 100%;
-  }
-  a {
-    position: absolute;
-    z-index:2;
-    top:0;
-    bottom:0;
-    left:0;
-    right:0;
-    text-align: center;
-    padding-top: 25%;
-    font-size: 20px;
-    background:$text;
-    opacity:0;
-    &:hover {
-      opacity:0.95;
-      color:white;
-      font-weight: 300;
-      font-size: 24px;
-    }
-  }
-}
 
 
 
@@ -398,6 +443,8 @@ section.contact {
     padding: 0 20px;
     a {
       color:white;
+      font-family: oswald;
+      font-weight: 300;
     } 
   }
   padding-bottom: 80px;
@@ -411,6 +458,7 @@ section.contact {
 
 .contact-form {
   @include column(12);
+  margin-left: 0;
   text-align: center;
   input, textarea {
     padding: 10px;
@@ -427,9 +475,8 @@ section.contact {
 
   .your-name input{
     @include column(6);
+    margin-left: 0;
     margin-bottom: 20px;
-    
-
   }
 
   .your-email input {
@@ -438,13 +485,70 @@ section.contact {
   }
   .your-message textarea {
     @include column(12);
+    margin-left: 0;
     margin-bottom: 20px;
   }
-  input.wpcf7-submit {
-    // @include column(12);
-    padding: 10px 30px;
+  // input.wpcf7-submit {
+  //   // @include column(12);
+  //   padding: 10px 30px;
+  // }
+  input[type=submit] {
+    padding: 10px 50px;
+    margin-top:10px;
+    background-color: $link;
+    color:$dark;
+    &:hover {
+      background-color: white;
+      color:$link;
+    }
+  }
+  div.wpcf7-response-output {
+    border:none;
+    // background:$blueShade;
+    color:white;
+    padding: 20px;
+    margin-top: 0;
+    font-family: Lato;
+    @include fontify(18px, 400, 0, 1.2em);
   }
 
+}
+
+
+
+/* =============================================================================
+                   Footer
+   ========================================================================== */
+
+footer {
+  background-color:$dark;
+  color:rgba(255,255,255,0.8);
+  padding: 20px 0;
+
+  .footer-name {
+    text-align: center;
+    p {
+      font-family: Lato;
+      @include fontify(14px, 100, 0px, 1.2em);
+    }
+  } 
+  .social-media {
+    text-align: center;
+    p.fa {
+      margin: 5px auto;
+      margin-bottom: 0;
+      a {
+        color:lighten($link,10);    
+      }
+      i {
+        font-size: 24px;
+        margin: 0 10px;
+        &:hover {
+          color:$link;
+        }
+      }
+    }
+  }
 }
 
 

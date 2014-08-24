@@ -15,6 +15,7 @@
   <link rel="stylesheet" type="text/css"  href="<?php bloginfo( 'stylesheet_url' ); ?>" />
   <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   
 	<?php	if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' ); wp_head(); ?>
 
@@ -26,11 +27,17 @@
 
 <body <?php body_class(); ?>>
 
+<!-- need another top link to go to http://homepage otherwise logo will just do smooth scroll if comes back to homepage from portfolio-->
+
+
 <header class="clearfix">
   <div class="innerWrapper clearfix">
+
+
+  <?php if ( is_front_page() ) : ?>
   	<div class="logo">
       <h1>
-        <a data-id="home" class="scroll-link" href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+        <a data-id="home" href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
           <?php bloginfo( 'name' ); ?>
         </a>
       </h1>
@@ -43,6 +50,43 @@
         <li><a data-id="contact" class="scroll-link" href="#contact">Contact</a></li>
       </ul>
     </nav>
+  
+  <?php elseif ( is_home() ) : ?>
+      <div class="logo">
+        <h1>
+          <a href="<?php echo home_url($path = '/', $scheme = http); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+            <?php bloginfo( 'name' ); ?>
+          </a>
+        </h1>
+      </div>
+      <nav class="main-nav clearfix" id="main-nav">
+        <ul class="main-nav-menu">
+          <li><a data-id="about" class="non-home" href="<?php echo home_url( $path = '/', $scheme = http ); ?>#about">About</a></li>
+          <li><a data-id="portfolio" href="<?php echo home_url( $path = '/', $scheme = http ); ?>#portfolio">Portfolio</a></li>
+          <li><a data-id="blog" href="<?php echo home_url( $path = '/', $scheme = http ); ?>blog">Blog</a></li>
+          <li><a data-id="contact" href="<?php echo home_url( $path = '/', $scheme = http ); ?>#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+
+  <?php else: ?>
+      <div class="logo">
+        <h1>
+          <a href="<?php echo home_url($path = '/', $scheme = http); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+            <?php bloginfo( 'name' ); ?>
+          </a>
+        </h1>
+      </div>
+      <nav class="main-nav clearfix" id="main-nav">
+        <ul class="main-nav-menu">
+          <li><a data-id="about" class="non-home" href="<?php echo home_url( $path = '/', $scheme = http ); ?>#about">About</a></li>
+          <li><a data-id="portfolio" href="<?php echo home_url( $path = '/', $scheme = http ); ?>portfolio">Portfolio</a></li>
+          <li><a data-id="blog" href="<?php echo home_url( $path = '/', $scheme = http ); ?>#blog">Blog</a></li>
+          <li><a data-id="contact" href="<?php echo home_url( $path = '/', $scheme = http ); ?>#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+  <?php endif; ?>
+
   </div> <!-- /.innerWrapper -->
 </header><!--/.header-->
-

@@ -13,7 +13,7 @@
         <?php elseif ( is_year() ) : ?>
           <?php printf( __( 'Yearly Archives: %s', 'twentyten' ), get_the_date('Y') ); ?>
         <?php else : ?>
-          <?php _e( 'Portfolio Archives', 'twentyten' ); ?>
+          <?php _e( 'Blog Archives', 'twentyten' ); ?>
         <?php endif; ?>
       </h1>
 
@@ -30,7 +30,6 @@
 	 */
   get_template_part( 'loop', 'archive' );
   ?>
-
 
     </div><!--/left-->	
     <?php get_sidebar(); ?>

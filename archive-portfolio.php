@@ -9,6 +9,7 @@
             <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium'); ?></a>
             <h4><?php the_field('short_description') ?></h4>
             <p><?php the_content(); ?></p>
+            <?php the_terms($post->ID, 'technologies'); ?>
 
           </article>
       <?php endwhile; // end the loop?>

@@ -17,10 +17,23 @@ get_header();  ?>
   </div>
 </section>
 
+
+
+
+<!-- scroll-to-top button -->
+
+<a href="#home" class="scroll-top">
+  <div class="circle">
+      <i class="fa fa-angle-double-up fa-stack-1x fa-inverse"></i>
+  </div>
+</a>
+
+
 <!-- About -->
 <section class="about main clearfix">
   <div class="innerWrapper clearfix">
     <div id="about">
+    <div class="hidden clearfix"></div>
       <div class="about-image clearfix">
         <?php $image = get_field('about_headshot'); ?>
         <img src="<?php echo $image['sizes']['thumbnail'] ?>">
@@ -31,15 +44,16 @@ get_header();  ?>
         <?php the_field('about_content') ?>
       </div>
     </div>
-    
   </div>
 </section>
+
 
 
 <!-- Portfolio -->
 <section class="portfolio main clearfix">
   <div class="innerWrapper clearfix">
     <div id="portfolio">
+    <div class="hidden clearfix"></div>
       <div class="title clearfix">
         <h2>Portfolio</h2>
         <h3>Things I designed and built</h3>
@@ -52,16 +66,16 @@ get_header();  ?>
                 )
             ); ?>
         <?php while ($portfolioQuery->have_posts()) : $portfolioQuery->the_post(); ?>
-            <figure class="col2">
-              <div class="img-hover">
-                <?php the_post_thumbnail('full'); ?>
-                <h3><a href="<?php the_permalink(); ?>">View Project</a></h3>
-              </div>
-            <figcaption>
-              <h4><?php the_field('portfolio_title') ?></h4>
-              <p><?php the_field('short_description') ?></p>
-            </figcaption>
+          <div class="col2 clearfix">
+            <figure>
+              <?php the_post_thumbnail('full'); ?>
+              <figcaption class="clearfix">
+                <h4><?php the_field('portfolio_title') ?></h4>
+                <p><?php the_field('short_description') ?></p>
+                <a href="<?php the_permalink(); ?>">Take a look</a>
+              </figcaption>
             </figure>
+          </div>
         <?php endwhile; // end the loop?>
         <?php wp_reset_postdata(); ?>
     </div>
@@ -72,6 +86,7 @@ get_header();  ?>
 <section class="blog main clearfix">
   <div class="innerWrapper clearfix">
     <div id="blog">
+    <div class="hidden clearfix"></div>
     <div class="title clearfix">
       <h2>Recent Blog</h2>
     </div>
@@ -110,7 +125,6 @@ get_header();  ?>
     </div>
   </div>
 </section>
-
 
 
 <?php get_footer(); ?>
