@@ -30,11 +30,11 @@
 <!-- need another top link to go to http://homepage otherwise logo will just do smooth scroll if comes back to homepage from portfolio-->
 
 
+  <?php if ( is_front_page() ) : ?>
 <header class="clearfix">
   <div class="innerWrapper clearfix">
 
 
-  <?php if ( is_front_page() ) : ?>
     <div class="logo">
       <h1>
         <a data-id="home" href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
@@ -50,9 +50,13 @@
         <li><a data-id="contact" class="scroll-link" href="#contact">Contact</a></li>
       </ul>
     </nav>
+      </div> <!-- /.innerWrapper -->
+</header><!--/.header-->
   
   <!-- blog index -->
   <?php elseif ( is_home() ) : ?>
+    <header class="nonhome-colored clearfix">
+  <div class="innerWrapper clearfix">
       <div class="logo">
         <h1>
           <a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
@@ -68,9 +72,13 @@
           <li><a data-id="contact" href="<?php echo home_url( '/' ); ?>#contact">Contact</a></li>
         </ul>
       </nav>
+        </div> <!-- /.innerWrapper -->
+</header><!--/.header-->
 
 
   <?php else: ?>
+    <header class="nonhome-colored clearfix">
+  <div class="innerWrapper clearfix">
       <div class="logo">
         <h1>
           <a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
@@ -87,7 +95,7 @@
         </ul>
       </nav>
 
-  <?php endif; ?>
 
   </div> <!-- /.innerWrapper -->
 </header><!--/.header-->
+  <?php endif; ?>

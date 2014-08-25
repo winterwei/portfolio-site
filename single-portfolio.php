@@ -2,15 +2,22 @@
 
 <section class="portfolio-single clearfix">
   <div class="innerWrapper clearfix">
-    <div class="full">
+    <div class="portfolio-full">
+    
       <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
         
+
         <h2><?php the_title(); ?></h2>
-        <?php while( has_sub_field('images') ): ?>
-        <?php endwhile; ?>
         <p><?php the_content(); ?></p>
-        <h3><a href="<?php the_field('project_url') ?>">View Site Live</a></h3>
-        <?php the_post_thumbnail('full'); ?>
+        <h3 class="button"><a href="<?php the_field('project_url') ?>" target="_blank">View Site Live</a></h3>
+
+        <?php while( has_sub_field('featured_image') ): ?>
+          <div class="image">
+            <?php $image = get_sub_field('image'); ?>
+            <img src="<?php echo $image['sizes']['large'] ?>">
+          </div>
+          <!-- Our sub fields go here -->
+        <?php endwhile; ?>
 
         <!-- Loop to spit out individual taxonomy terms without links-->
         <?php
@@ -23,9 +30,9 @@
             $technologies_used = join( " / ", $technology_links );
         ?>
 
-        <p>
-          Technologies used: <span class="taxonomy"><?php echo $technologies_used; ?></span>
-        </p>
+        <h3 class="taxonomy">
+          <strong>Technologies used:</strong> <span><?php echo $technologies_used; ?></span>
+        </h3>
 
         <?php endif; ?>
         

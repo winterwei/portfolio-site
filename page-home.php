@@ -81,32 +81,37 @@ get_header();  ?>
         <?php wp_reset_postdata(); ?>
     </div>
   </div>
+        <div class="button">
+          <a href="<?php echo home_url( '/' ); ?>portfolio">View All</a>
+        </div>
 </section>
 
 <!-- Blog -->
 <section class="blog main clearfix">
   <div class="innerWrapper clearfix">
-    <div id="blog">
-    <div class="hidden clearfix"></div>
-    <div class="title clearfix">
-      <h2>Recent Blog</h2>
-    </div>
-      <?php 
-        $blogQuery = new WP_Query(
-            array(
-              'posts_per_page' => 3,
-              'post_type' => 'post'
-              )
-          ); ?>
-      <?php while ($blogQuery->have_posts()) : $blogQuery->the_post(); ?>
-        <article class="col3">
-            <h3><a href="<?php the_field('blog_url') ?>"><?php the_title(); ?></a></h3>
-            <p><?php the_field('blog_intro') ?></p>
-            <h4><a href="<?php the_field('blog_url') ?>">Read More</a></h4>
-        </article>
-      <?php endwhile; // end the loop?>
-      <?php wp_reset_postdata(); ?>
-    </div>
+
+      <div id="blog">
+        <div class="hidden clearfix"></div>
+        <div class="title clearfix">
+          <h2>Recent Blog</h2>
+        </div>
+        <?php 
+          $blogQuery = new WP_Query(
+              array(
+                'posts_per_page' => 3,
+                'post_type' => 'post'
+                )
+            ); ?>
+          <?php while ($blogQuery->have_posts()) : $blogQuery->the_post(); ?>
+          <article class="col3">
+              <h3><?php the_title(); ?></h3>
+              <p><?php the_field('blog_intro') ?></p>
+              <div class="button"><a href="<?php the_field('blog_url') ?>">Read More</a></div>
+          </article>
+        <?php endwhile; // end the loop?>
+        <?php wp_reset_postdata(); ?>
+      </div>
+
   </div>
 </section>
 
@@ -114,6 +119,7 @@ get_header();  ?>
 <section class="contact main clearfix">
   <div class="innerWrapper clearfix">
     <div id="contact">
+    <div class="hidden clearfix"></div>
     <div class="title clearfix">
       <h2>Contact Me</h2>
     </div>
