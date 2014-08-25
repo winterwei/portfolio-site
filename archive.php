@@ -1,6 +1,6 @@
 <?php get_header(); ?>
-<div class="section">
-  <div class="innerWrapper">
+<div class="section clearfix">
+  <div class="innerWrapper clearfix">
     <div class="left">
 
       <?php if ( have_posts() ) the_post(); ?>

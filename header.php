@@ -35,7 +35,7 @@
 
 
   <?php if ( is_front_page() ) : ?>
-  	<div class="logo">
+    <div class="logo">
       <h1>
         <a data-id="home" href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
           <?php bloginfo( 'name' ); ?>
@@ -51,20 +51,21 @@
       </ul>
     </nav>
   
+  <!-- blog index -->
   <?php elseif ( is_home() ) : ?>
       <div class="logo">
         <h1>
-          <a href="<?php echo home_url($path = '/', $scheme = http); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+          <a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
             <?php bloginfo( 'name' ); ?>
           </a>
         </h1>
       </div>
       <nav class="main-nav clearfix" id="main-nav">
         <ul class="main-nav-menu">
-          <li><a data-id="about" class="non-home" href="<?php echo home_url( $path = '/', $scheme = http ); ?>#about">About</a></li>
-          <li><a data-id="portfolio" href="<?php echo home_url( $path = '/', $scheme = http ); ?>#portfolio">Portfolio</a></li>
-          <li><a data-id="blog" href="<?php echo home_url( $path = '/', $scheme = http ); ?>blog">Blog</a></li>
-          <li><a data-id="contact" href="<?php echo home_url( $path = '/', $scheme = http ); ?>#contact">Contact</a></li>
+          <li><a data-id="about" class="non-home" href="<?php echo home_url( '/' ); ?>#about">About</a></li>
+          <li><a data-id="portfolio" href="<?php echo home_url( '/' ); ?>#portfolio">Portfolio</a></li>
+          <li><a data-id="blog" href="<?php echo home_url( '/' ); ?>blog">Blog</a></li>
+          <li><a data-id="contact" href="<?php echo home_url( '/' ); ?>#contact">Contact</a></li>
         </ul>
       </nav>
 
@@ -72,17 +73,17 @@
   <?php else: ?>
       <div class="logo">
         <h1>
-          <a href="<?php echo home_url($path = '/', $scheme = http); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+          <a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
             <?php bloginfo( 'name' ); ?>
           </a>
         </h1>
       </div>
       <nav class="main-nav clearfix" id="main-nav">
         <ul class="main-nav-menu">
-          <li><a data-id="about" class="non-home" href="<?php echo home_url( $path = '/', $scheme = http ); ?>#about">About</a></li>
-          <li><a data-id="portfolio" href="<?php echo home_url( $path = '/', $scheme = http ); ?>portfolio">Portfolio</a></li>
-          <li><a data-id="blog" href="<?php echo home_url( $path = '/', $scheme = http ); ?>#blog">Blog</a></li>
-          <li><a data-id="contact" href="<?php echo home_url( $path = '/', $scheme = http ); ?>#contact">Contact</a></li>
+          <li><a data-id="about" class="non-home" href="<?php echo home_url( '/' ); ?>#about">About</a></li>
+          <li><a data-id="portfolio" href="<?php echo home_url( '/' ); ?>portfolio">Portfolio</a></li>
+          <li><a data-id="blog" href="<?php echo home_url( '/' ); ?>#blog">Blog</a></li>
+          <li><a data-id="contact" href="<?php echo home_url( '/' ); ?>#contact">Contact</a></li>
         </ul>
       </nav>
 

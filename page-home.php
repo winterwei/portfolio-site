@@ -67,14 +67,15 @@ get_header();  ?>
             ); ?>
         <?php while ($portfolioQuery->have_posts()) : $portfolioQuery->the_post(); ?>
           <div class="col2 clearfix">
-            <figure>
-              <?php the_post_thumbnail('full'); ?>
-              <figcaption class="clearfix">
-                <h4><?php the_field('portfolio_title') ?></h4>
-                <p><?php the_field('short_description') ?></p>
-                <a href="<?php the_permalink(); ?>">Take a look</a>
-              </figcaption>
-            </figure>
+            <a href="<?php the_permalink(); ?>">
+              <figure>
+                <?php the_post_thumbnail('full'); ?>
+                <figcaption class="clearfix">
+                  <h4><?php the_field('portfolio_title') ?></h4>
+                  <p><?php the_field('short_description') ?></p>
+                </figcaption>
+              </figure>
+            </a>
           </div>
         <?php endwhile; // end the loop?>
         <?php wp_reset_postdata(); ?>

@@ -60,11 +60,13 @@ img.alignright    { padding-left: 5px; }
 $text:#335;
 $link: #F22259;
 $theBlue: #BFD0DC;
+$liteShade: #ADC7D7;
 $blueShade: #94BAD3;
 $blueShade2:#476176;
 $darkBlue: #374358;
 $dark: #262027;
 $footer: #ededed;
+$palePink: #ffe3e8;;
 
 
 
@@ -128,7 +130,7 @@ li {
 .full {
   width:100%;
 }
-
+  
 /* =============================================================================
                    Sidebar 
    ========================================================================== */
@@ -157,7 +159,8 @@ header {
   transition: all 0.5s ease-in-out;
 }
 
-header.sticky {
+header.colored,
+header.nonhome-colored {
   background-color: $link;
   nav.main-nav ul li a {
     color:white;
@@ -270,9 +273,7 @@ section.hero {
    ========================================================================== */
 
 
-#contact {
-  padding: 50px 0 80px;
-}
+
 
 /* back to top icon */
 a.scroll-top {
@@ -331,7 +332,7 @@ a.scroll-top {
    ========================================================================== */
 
 section.portfolio {
-  background-color: #ffe3e8;
+  background-color: $theBlue;
   padding-bottom: 80px;
 }
 
@@ -346,9 +347,7 @@ section.portfolio {
       margin-left: 0;
     }
     @include column(6);
-    // background-color: $darkBlue;
     margin-bottom: 3%;
-    // padding:2% 0;
     text-align: center;
     figure {
       width: 100%;
@@ -386,14 +385,15 @@ section.portfolio {
           @include fontify(18px, 300, 0, 1.2em);
           margin-top: 10px;
         }
-        a {
-          font-family: Oswald;
-          padding: 5px 10px;
-          background: $link;
-          color:white;
-        }
+        // a {
+        //   font-family: Oswald;
+        //   padding: 5px 10px;
+        //   background: $link;
+        //   color:white;
+        // }
       }
       &:hover img {
+        // transform: scale(1.2);
         transform: translateY(-25%);
       }
 
@@ -404,21 +404,6 @@ section.portfolio {
       }
     }
   }
-}
-
-
-
-
-/* =============================================================================
-                   Portfolio
-   ========================================================================== */
-
-section.contact {
-  background-color: $theBlue;
-}
-
-#contact {
-  @include column(12);
 }
 
 
@@ -456,6 +441,16 @@ section.contact {
                    Contact
    ========================================================================== */
 
+
+section.contact {
+  background-color: $liteShade;
+}
+
+#contact {
+  padding: 50px 0 80px;
+  @include column(12);
+}
+
 .contact-form {
   @include column(12);
   margin-left: 0;
@@ -488,10 +483,7 @@ section.contact {
     margin-left: 0;
     margin-bottom: 20px;
   }
-  // input.wpcf7-submit {
-  //   // @include column(12);
-  //   padding: 10px 30px;
-  // }
+
   input[type=submit] {
     padding: 10px 50px;
     margin-top:10px;
@@ -524,6 +516,9 @@ footer {
   background-color:$dark;
   color:rgba(255,255,255,0.8);
   padding: 20px 0;
+  // position: absolute;
+  bottom: 0;
+  width: 100%;
 
   .footer-name {
     text-align: center;
@@ -550,6 +545,22 @@ footer {
     }
   }
 }
+
+
+
+
+/* =============================================================================
+                   Single Portfolio Page
+   ========================================================================== */
+
+section.portfolio-single,
+section.portfolio-home,
+section.blog-index {
+  padding-top: 100px;
+}
+
+
+
 
 
 /* =============================================================================

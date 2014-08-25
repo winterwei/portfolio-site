@@ -50,10 +50,10 @@
 			$(window).scroll(function() {
 
 			    if ($(window).scrollTop() > 500) {
-			        $('header').addClass('sticky');
+			        $('header').addClass('colored');
 			        $('.scroll-top').show();
 			    } else {
-			        $('header').removeClass('sticky');
+			        $('header').removeClass('colored');
 			        $('.scroll-top').hide();
 			    }
 			});

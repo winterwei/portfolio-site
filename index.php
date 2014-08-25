@@ -1,6 +1,6 @@
 <?php get_header(); ?>
-<div class="section">
-  <div class="innerWrapper">
+<section class="blog-index clearfix">
+  <div class="innerWrapper clearfix">
     <div class="left">
     		<?php get_template_part( 'loop', 'index' );	?>
 
@@ -8,5 +8,5 @@
     </div> <!--/left-->
     <?php get_sidebar(); ?>
   </div> <!-- /.innerWrapper -->
-</div> <!-- /.section -->
+</section> <!-- /.section -->
 <?php get_footer(); ?>

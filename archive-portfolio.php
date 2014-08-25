@@ -1,6 +1,6 @@
 <?php get_header(); ?>
-<div class="section">
-  <div class="innerWrapper">
+<section class="portfolio-home clearfix">
+  <div class="innerWrapper clearfix">
     <div class="left">
 
       <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
@@ -9,12 +9,26 @@
             <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium'); ?></a>
             <h4><?php the_field('short_description') ?></h4>
             <p><?php the_content(); ?></p>
-            <?php the_terms($post->ID, 'technologies'); ?>
+            <?php
+              $terms = get_the_terms( $post->ID, 'technologies' );         
+              if ( $terms && ! is_wp_error( $terms ) ) : 
+                $technology_links = array();
+                foreach ( $terms as $term ) {
+                  $technology_links[] = $term->name;
+                }  
+                $technologies_used = join( " / ", $technology_links );
+            ?>
+
+            <p>
+              Technologies used: <span class="taxonomy"><?php echo $technologies_used; ?></span>
+            </p>
+            <?php endif; ?>
+
 
           </article>
       <?php endwhile; // end the loop?>
 
     </div><!--/left-->	
   </div> <!-- /.innerWrapper -->
-</div> <!-- /.section -->
+</section> <!-- /.section -->
 <?php get_footer(); ?>
