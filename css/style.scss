@@ -798,7 +798,7 @@ section.sidebar {
    ========================================================================== */
 // 1000 and down
 // innerWrapper 90%
-@media (max-width: 1000px) {
+@media all and (max-width: 1000px) {
   .innerWrapper {
     width: 90%;
   }
@@ -807,7 +807,7 @@ section.sidebar {
   }
 }
 
-@media (max-width: 960px) {
+@media all and (max-width: 960px) {
   //blog section need less margin
   #blog {
     .col3 {
@@ -821,7 +821,7 @@ section.sidebar {
   }
 }
 
-@media (max-width: 768px) {
+@media all and (max-width: 768px) {
   //menu bar
   //stacking
   //rid hover state
@@ -912,7 +912,11 @@ section.sidebar {
 
 
 
-@media (max-width: 665px) {
+@media all and (max-width: 665px) {
+  header.nonhome-colored {
+    background-color: white;
+    margin: 0;
+  }
   .mobile-toggle {
     display:block;
     @include column(10);
@@ -930,6 +934,7 @@ section.sidebar {
     // @include column(12);
     width: 100%;
     padding-bottom: 20px;
+    margin: 0;
     ul {
       margin: 0;
       width: 100%;
@@ -976,6 +981,12 @@ section.sidebar {
     }
   }
 
+}
+
+@media all and (min-width: 666px) {
+  nav {
+    display:block !important;
+  }
 }
 
 
