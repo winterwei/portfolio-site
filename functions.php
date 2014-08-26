@@ -90,7 +90,7 @@ add_filter( 'excerpt_length', 'twentyten_excerpt_length' );
  * Returns a "Continue Reading" link for excerpts
  */
 function twentyten_continue_reading_link() {
-	return ' <a href="'. get_permalink() . '">' . __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentyten' ) . '</a>';
+	return ' <p><a href="'. get_permalink() . '">' . __( 'Read more <span class="meta-nav">&rarr;</span>', 'twentyten' ) . '</a></p>';
 }
 
 /**
@@ -228,14 +228,14 @@ function twentyten_posted_in() {
 	if ( $tag_list ) {
 		$posted_in = __( 'This entry was posted in %1$s and tagged %2$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'twentyten' );
 	} elseif ( is_object_in_taxonomy( get_post_type(), 'category' ) ) {
-		$posted_in = __( 'This entry was posted in %1$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'twentyten' );
+		$posted_in = __( 'Topcis: %1$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'twentyten' );
 	} else {
 		$posted_in = __( 'Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'twentyten' );
 	}
 	// Prints the string, replacing the placeholders.
 	printf(
 		$posted_in,
-		get_the_category_list( ', ' ),
+		get_the_category_list( ' / ' ),
 		$tag_list,
 		get_permalink(),
 		the_title_attribute( 'echo=0' )

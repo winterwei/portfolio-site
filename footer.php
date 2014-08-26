@@ -30,10 +30,17 @@
 	<script>
 		$(document).ready(function() {
 			// navigation click actions	
+
 			$('.scroll-link').on('click', function(event){
 				event.preventDefault();
-				var sectionID = $(this).attr("data-id");
-				scrollToID('#' + sectionID, 750);
+				if($(window).width() > 665) {
+					var sectionID = $(this).attr("data-id");
+					scrollToID('#' + sectionID, 750);
+				} else {
+					var sectionID = $(this).attr("data-id");
+					scrollToID('#' + sectionID, 750);
+					$('nav').slideUp();
+				}
 			});
 			// scroll to top action
 			$('.scroll-top').on('click', function(event) {
@@ -41,15 +48,15 @@
 				$('html, body').animate({scrollTop:0}, 'slow'); 		
 			});
 			// mobile nav toggle
-			$('#nav-toggle').on('click', function (event) {
+			$('.mobile-toggle').on('click', function() {
+				$('nav').slideToggle();
 				event.preventDefault();
-				$('#main-nav').toggleClass("open");
 			});
+
 
 			//sticky header
 			$(window).scroll(function() {
-
-			    if ($(window).scrollTop() > 500) {
+			    if ($(window).scrollTop() > 500 && $(window).width() > 665) {
 			        $('header').addClass('colored');
 			        $('.scroll-top').show();
 			    } else {

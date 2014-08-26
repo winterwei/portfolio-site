@@ -42,9 +42,13 @@
         </a>
       </h1>
     </div>
-    <nav class="main-nav clearfix" id="main-nav">
+    <div class="mobile-toggle">
+      <i class="fa fa-bars"></i>
+    </div>
+    <nav class="main-nav" id="main-nav">
       <ul class="main-nav-menu">
         <li><a data-id="about" class="scroll-link" href="#about">About</a></li>
+        <li><a data-id="skills" class="scroll-link" href="#skills">Skills</a></li>
         <li><a data-id="portfolio" class="scroll-link" href="#portfolio">Portfolio</a></li>
         <li><a data-id="blog" class="scroll-link" href="#blog">Blog</a></li>
         <li><a data-id="contact" class="scroll-link" href="#contact">Contact</a></li>
@@ -53,29 +57,8 @@
       </div> <!-- /.innerWrapper -->
 </header><!--/.header-->
   
-  <!-- blog index -->
-  <?php elseif ( is_home() ) : ?>
-    <header class="nonhome-colored clearfix">
-  <div class="innerWrapper clearfix">
-      <div class="logo">
-        <h1>
-          <a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-            <?php bloginfo( 'name' ); ?>
-          </a>
-        </h1>
-      </div>
-      <nav class="main-nav clearfix" id="main-nav">
-        <ul class="main-nav-menu">
-          <li><a data-id="about" class="non-home" href="<?php echo home_url( '/' ); ?>#about">About</a></li>
-          <li><a data-id="portfolio" href="<?php echo home_url( '/' ); ?>#portfolio">Portfolio</a></li>
-          <li><a data-id="blog" href="<?php echo home_url( '/' ); ?>blog">Blog</a></li>
-          <li><a data-id="contact" href="<?php echo home_url( '/' ); ?>#contact">Contact</a></li>
-        </ul>
-      </nav>
-        </div> <!-- /.innerWrapper -->
-</header><!--/.header-->
 
-
+<!-- other pages -->
   <?php else: ?>
     <header class="nonhome-colored clearfix">
   <div class="innerWrapper clearfix">
@@ -86,10 +69,14 @@
           </a>
         </h1>
       </div>
-      <nav class="main-nav clearfix" id="main-nav">
+      <div class="mobile-toggle">
+        <i class="fa fa-bars"></i>
+      </div>
+      <nav class="main-nav" id="main-nav">
         <ul class="main-nav-menu">
           <li><a data-id="about" class="non-home" href="<?php echo home_url( '/' ); ?>#about">About</a></li>
-          <li><a data-id="portfolio" href="<?php echo home_url( '/' ); ?>portfolio">Portfolio</a></li>
+          <li><a data-id="skills" class="non-home" href="<?php echo home_url( '/' ); ?>#skills">Skills</a></li>
+          <li><a data-id="portfolio" href="<?php echo home_url( '/' ); ?>#portfolio">Portfolio</a></li>
           <li><a data-id="blog" href="<?php echo home_url( '/' ); ?>#blog">Blog</a></li>
           <li><a data-id="contact" href="<?php echo home_url( '/' ); ?>#contact">Contact</a></li>
         </ul>

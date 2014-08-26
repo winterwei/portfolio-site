@@ -1,6 +1,6 @@
 <?php get_header(); ?>
-<div class="section">
-  <div class="innerWrapper">
+<section class="category clearfix">
+  <div class="innerWrapper clearfix">
     <div class="left">
     	<h1><?php printf( __( 'Category Archives: %s', 'twentyten' ), '' . single_cat_title( '', false ) . '' ); ?></h1>
     	<?php
@@ -13,5 +13,5 @@
     </div> <!-- /.left -->
     <?php get_sidebar(); ?>
   </div> <!-- /.innerWrapper -->
-</div> <!-- /.section -->
+</section> <!-- /.section -->
 <?php get_footer(); ?>

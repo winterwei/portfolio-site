@@ -10,14 +10,11 @@
             <a href="<?php the_permalink(); ?>">
               <div class="panel">
                 <?php the_post_thumbnail('large'); ?>
-                <h2><?php the_title(); ?></h2>
+                <h3><?php the_title(); ?></h3>
               </div>
             </a>
-
-
           </article>
       <?php endwhile; // end the loop?>
-
     </div><!--/left-->	
   </div> <!-- /.innerWrapper -->
 </section> <!-- /.section -->

@@ -57,14 +57,19 @@ img.alignright    { padding-left: 5px; }
 
 $text:#335;
 $link: #F22259;
+$link2: #C23F4A;
 $theBlue: #BFD0DC;
+$theBlue2: #C2DEEF;
 $liteShade: #ADC7D7;
 $blueShade: #94BAD3;
 $blueShade2:#476176;
 $darkBlue: #374358;
 $dark: #262027;
 $footer: #ededed;
-$palePink: #ffe3e8;;
+$palePink: #ffe3e8;
+$greenBlue: #37AFBF;
+$brightLiteBlue: #80DBE5;
+$cream:#F9F3E3;
 
 
 
@@ -189,6 +194,11 @@ header .logo {
   }
 }
 
+.mobile-toggle {
+  display:none;
+}
+
+
 nav {
   // float:left;
   // width: 70%;
@@ -213,7 +223,7 @@ nav ul.main-nav-menu {
     opacity:0.8;
     position: relative;
     display:inline-block;
-    padding: 25px 30px;
+    padding: 25px 25px;
     &:after {
       position: absolute;
       top: 96%;
@@ -251,20 +261,30 @@ nav ul.main-nav-menu {
    ========================================================================== */
 
 section.hero {
-  background:url(images/header-placehoder.png);
-  background-attachment: fixed;
+  background:url(images/strawberry-background.png);
+  // background-attachment: fixed;
   background-size: cover;
+  background-position: center center;
+  width: 100%;
   height: 100%;
-  padding: 250px 0;
-
+  // padding-top: 100px;
+  text-align: center;
+  position: relative;
+  .headlineWrapper {
+    position: absolute;
+    bottom:50px;
+    left: 0;
+    right: 0;
     h1 {
       @include fontify(52px, 700, 2px, 1.2em);
       margin-bottom: 10px;
+      // text-align: center;
     }
     h2 {
       @include fontify(24px, 300, 0, 1.2em);
       margin-top:0;
     }
+  }
 }
 
 
@@ -278,8 +298,8 @@ section.hero {
 a.scroll-top {
   display:none;
   position: fixed;
-  bottom: 80px;
-  right:50px;
+  bottom: 10%;
+  right:5%;
   z-index: 10;
   div.circle{
     width: 35px;
@@ -319,10 +339,39 @@ a.scroll-top {
   }
   .text {
     @include column(9);
-    padding-bottom: 80px;
+    padding-bottom: 40px;
   }
 }
 
+
+
+/* =============================================================================
+                   Skills
+   ========================================================================== */
+section.skills {
+  background-color:$cream;
+  .innerWrapper {
+    padding-bottom: 80px;
+  }
+}
+#skills {
+  margin-left:1.5%;
+  div.skill-set {
+    margin-bottom: 20px;  
+    p.skill-title {
+      margin-bottom: 5px;
+      font-size: 20px;
+    }
+    span.skill-name {
+      font-family: Oswald;
+      font-size: 18px;
+      font-weight: 400;
+      color:$darkBlue;
+      margin-right: 10px;
+
+    }
+  }
+}
 
 
 
@@ -331,7 +380,7 @@ a.scroll-top {
    ========================================================================== */
 
 section.portfolio {
-  background-color: $theBlue;
+  background-color: $theBlue2;
   padding-bottom: 80px;
 }
 
@@ -363,7 +412,7 @@ section.portfolio {
         position: relative;
         transition: transform 0.4s;
       }
-      figcaption {
+      figcaption.hover {
         position: absolute;
         width: 100%;
         height: 50%;
@@ -385,12 +434,13 @@ section.portfolio {
           margin-top: 10px;
         }
       }
+
       &:hover img {
         // transform: scale(1.2);
         transform: translateY(-25%);
       }
 
-      &:hover figcaption {
+      &:hover figcaption.hover {
         opacity:1;
         transform: translateY(0px);
         transition: transform 0.4s, opacity 0.1s;
@@ -398,6 +448,28 @@ section.portfolio {
     }
   }
 }
+    figcaption.no-hover {
+      display: none;
+      position:static;
+      background-color: white;
+      margin-top: -4%;
+      padding: 5% 15% 10%;
+      h4 {
+        font-family: Oswald;
+        @include fontify(18px, 400, 0, 1.5em);
+      }
+      p {
+        @include fontify(18px, 300, 0, 1.5em);
+        margin: 20px 0 40px;
+
+      }
+      a.no-hover-link {
+        @include button-style;
+        font-size: 16px;
+        padding: 5px 10px;
+        margin: 20px 0;
+      }
+    }
 .portfolio .button {
   @include column(12);
     text-align: center;
@@ -415,6 +487,9 @@ section.portfolio {
 /* =============================================================================
                    Blog
    ========================================================================== */
+section.blog {
+  padding-bottom: 80px;
+}
 #blog {
   // @include column(12);
   width: 100%;
@@ -431,15 +506,17 @@ section.portfolio {
     height:300px;
     // background-color: $link;
     padding: 0 20px 0 30px;
-    .button {
+    .read-more {
       margin-top: 30px;
       a {
-        @include button-style;
-        padding: 5px 20px;
+        //@include button-style;
+        font-family: Oswald;
+        padding: 5px 20px 5px 0;
         margin-top: 30px;
         font-size:16px;
         &:hover {
-          @include button-hover-style;
+          color:$darkBlue;
+          // @include button-hover-style;
         }
       }
     }
@@ -447,8 +524,19 @@ section.portfolio {
       background-color: $theBlue;
     }
   }
-  padding-bottom: 80px;
+  padding-bottom: 30px;
 }
+.blog .button {
+  @include column(12);
+    text-align: center;
+    // margin: 50px 0 80px;
+    a {
+      @include button-style;
+      &:hover {
+        @include button-hover-style;
+      }
+    }
+  }
 
 
 
@@ -458,7 +546,7 @@ section.portfolio {
 
 
 section.contact {
-  background-color: $liteShade;
+  background-color: $theBlue2;
 }
 
 #contact {
@@ -544,7 +632,7 @@ footer {
     }
   } 
   .social-media {
-    text-align: center;
+    text-align: left;
     p.fa {
       margin: 5px auto;
       margin-bottom: 0;
@@ -566,20 +654,60 @@ footer {
 
 
 /* =============================================================================
+                   Archive Portfolio Page
+   ========================================================================== */
+
+section.portfolio-home {
+  .full {
+    .title {
+      margin-bottom: 30px;
+    }
+    @include column(12);
+    article.portfolio-item {
+      @include column(6);
+      margin-bottom: 3%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      h3 {
+        text-align: center;
+        @include button-style;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        &:hover {
+          @include button-hover-style;
+        }
+      }
+    }
+  }
+}
+
+
+
+/* =============================================================================
                    Single Portfolio Page
    ========================================================================== */
 
 section.portfolio-single,
 section.portfolio-home,
-section.blog-index {
+section.blog-index,
+section.blog-single,
+section.category {
   padding-top: 100px;
 }
 
 .portfolio-full {
-  width: 80%;
+  // width: 80%;
   margin: 0 auto;
   padding-bottom: 50px;
   text-align: center;
+  .back-to-portfolio {
+    h3 {
+      font-size: 18px;
+      text-align: left;
+    }
+  }
   h2 {
     margin: 50px auto 30px;
     @include fontify(31px, 400, 0, 1.2em);
@@ -594,7 +722,7 @@ section.blog-index {
     }
   }
   .image img {
-    margin-bottom: 50px;
+    margin: 50px 0;
   }
   h3.taxonomy {
     font-size: 20px;
@@ -605,8 +733,251 @@ section.blog-index {
 
 
 /* =============================================================================
-                    Portfolio Archive Page
+                    Single Blog post Page
    ========================================================================== */
+
+section.blog-single {
+  .left {
+    .entry-content {
+      padding-bottom: 50px;
+      margin-bottom: 50px;
+      border-bottom: 1px solid #eee;
+    }
+    h3 {
+      @include fontify(18px, 300, 1px, 1.2em);
+    }
+    h2 {
+      @include fontify(24px, 300, 0, 1.5em);
+    }
+    #nav-below {
+      margin-bottom: 50px;
+    }
+    h3#reply-title {
+      font-weight:400;
+      margin-top: 50px;
+    }
+  }
+}
+
+
+/* =============================================================================
+                    Index Blog Page
+   ========================================================================== */
+section.blog-index {
+
+  article {
+    h2 {
+      line-height: 1.5em;
+    }
+    border-bottom: 1px solid #eee;
+    padding: 10px 20px 30px;
+    margin-bottom: 50px;
+  }
+}
+
+
+/* =============================================================================
+                    Sidebar
+   ========================================================================== */
+section.sidebar {
+  margin-bottom: 20px;
+  background-color: $theBlue2;
+  padding: 0 20px 20px;
+  h3.widget-title {
+    margin-bottom: 12px;
+  }
+  ul li {
+    padding: 5px 0;
+    font-family: Oswald;
+    @include fontify(20px, 300, 0, 1.2em);
+  }
+}
+
+/* =============================================================================
+                    Responsive
+   ========================================================================== */
+// 1000 and down
+// innerWrapper 90%
+@media (max-width: 1000px) {
+  .innerWrapper {
+    width: 90%;
+  }
+  a.scroll-top {
+    right:2%;
+  }
+}
+
+@media (max-width: 960px) {
+  //blog section need less margin
+  #blog {
+    .col3 {
+      // @include column(4);
+      width: 32%;
+      margin: 0.5%;
+      float:left;
+      height:300px;
+      padding: 0 1% 0 2%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  //menu bar
+  //stacking
+  //rid hover state
+  .innerWrapper {
+    width: 95%;
+  }
+  header .logo {
+    @include column(2);
+  }
+  nav {
+    @include column(10);
+  }
+  section.hero {
+    background: url(images/strawberry-mobile.png);
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 100%;
+  }
+
+  #about {
+    .about-image {
+      @include column(4); 
+    }
+    .text {
+      @include column(8);
+    }
+  }
+
+  #portfolio {
+    .col2 {
+      @include column(12);
+      margin:3% auto;
+      background-color: white;
+      figure {
+        transition-property:none;
+        width: 90%;
+        margin-top: 5%;
+        img {
+          transition-property:none;
+        }
+        figcaption.hover {
+          display:none;
+        }
+        &:hover img {
+          transform: none;
+        }
+      }
+      figcaption.no-hover {
+        display:block;
+      }
+    }
+  }
+  #blog {
+    .col3 {
+      width: 100%;
+      height: 230px;
+    }
+  }
+  a.scroll-top {
+    bottom: 10%;
+  }
+  section.blog-index {
+    .left {
+      width: 100%;    
+    }
+  }
+  section.sidebar {
+    width: 80%;
+  }
+  section.blog-single {
+    width: 100%;
+    .left {
+      width: 100%;
+    }
+  }
+  section.portfolio-home {
+    .full {
+      article.portfolio-item {
+        @include column(12);
+        h3 {
+          margin-bottom: 60px;
+        }
+      } 
+    }
+  }
+}
+
+
+
+@media (max-width: 665px) {
+  .mobile-toggle {
+    display:block;
+    @include column(10);
+    text-align: right;
+    i.fa {
+      font-size: 30px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+  }
+  
+  nav {
+    display:none;
+    overflow: hidden;
+    // @include column(12);
+    width: 100%;
+    padding-bottom: 20px;
+    ul {
+      margin: 0;
+      width: 100%;
+      li {
+        display:block;
+        width: 100%;
+        text-align: center;
+        margin: 5px 0;
+
+        background-color: $link;
+        a {
+          width: 100%;
+          color:white;
+          padding-top: 5px;
+        }
+      }
+    }
+  }
+  #about {
+    .about-image {
+      @include column(12); 
+      padding: 0;
+      img {
+        float:right;
+      }
+    }
+    .text {
+      @include column(12);
+    }
+  }
+  .contact-form {
+    .your-name input{
+      @include column(12);
+      // width: 100%;
+      margin-bottom: 20px;
+    }
+    .your-email input {
+      @include column(12);
+      margin-bottom: 20px;
+    }
+    .your-message textarea {
+      @include column(12);
+      margin-bottom: 30px;
+    }
+  }
+
+}
+
 
 
 
@@ -709,7 +1080,8 @@ h3#reply-title { margin:18px 0; }
 }
 #respond label {
   color:#888888;
-  font-size:12px;
+  font-size:18px;
+  padding-bottom: 20px;
 }
 #respond input {
   width:98%;
@@ -718,14 +1090,23 @@ h3#reply-title { margin:18px 0; }
 #respond textarea { width:98%; }
 #respond dt, #respond dd {
   color:#888888;
-  font-size:12px;
+  font-size:18px;
   line-height:18px;
+  margin:30px 0;
 }
 #respond dd code { font-size:11px; }
-#respond .form-submit { margin:0 0 24px; }
+#respond .form-submit { 
+  margin:30px 0;
+}
 #respond .form-submit input {
   width:auto;
-  font-size:14px;
+  // font-size:18px;
+  @include button-style;
+  outline:none;
+  border:none;
+  &:hover {
+    @include button-hover-style;
+  }
 }
 #respond dl { margin:0 0 10px; }
 #respond dt {

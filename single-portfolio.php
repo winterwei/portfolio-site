@@ -3,13 +3,13 @@
 <section class="portfolio-single clearfix">
   <div class="innerWrapper clearfix">
     <div class="portfolio-full">
-    
+    <div class="back-to-portfolio">
+      <h3><a href="<?php echo home_url( '/' ); ?>portfolio">&larr; All Projects</a></h3>
+    </div>
       <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
         
 
         <h2><?php the_title(); ?></h2>
-        <p><?php the_content(); ?></p>
-        <h3 class="button"><a href="<?php the_field('project_url') ?>" target="_blank">View Site Live</a></h3>
 
         <?php while( has_sub_field('featured_image') ): ?>
           <div class="image">
@@ -18,6 +18,8 @@
           </div>
           <!-- Our sub fields go here -->
         <?php endwhile; ?>
+        <p><?php the_content(); ?></p>
+        <h3 class="button"><a href="<?php the_field('project_url') ?>" target="_blank">View Site Live</a></h3>
 
         <!-- Loop to spit out individual taxonomy terms without links-->
         <?php
