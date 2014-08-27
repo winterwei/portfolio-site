@@ -34,15 +34,17 @@ get_header();  ?>
   <div class="innerWrapper clearfix">
     <div id="about">
     <div class="hidden clearfix"></div>
-      <div class="text clearfix">
-        <h2><?php the_field('about_title') ?></h2>
-        <h3><?php the_field('about_tagline') ?></h3>
-        <?php the_field('about_content') ?>
-      </div>
-      <div class="about-image clearfix">
-        <?php $image = get_field('about_headshot'); ?>
-        <img src="<?php echo $image['sizes']['thumbnail'] ?>">
-      </div>
+    <div class="title">
+      <h2><?php the_field('about_title') ?></h2>
+      <h3><?php the_field('about_tagline') ?></h3>
+    </div>
+    <div class="about-image clearfix">
+      <?php $image = get_field('about_headshot'); ?>
+      <img src="<?php echo $image['sizes']['thumbnail'] ?>">
+    </div>
+    <div class="text clearfix">
+      <?php the_field('about_content') ?>
+    </div>
     </div>
   </div>
 </section>

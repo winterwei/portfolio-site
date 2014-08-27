@@ -9,6 +9,9 @@
     		<a href="https://www.behance.net/winterwei"><i class="fa fa-behance"></i></a>
     	</p>
     </div>
+    <div class="copyright">
+    	<p>Design, development and illustration by &copy; Winter Wei <?php echo date('Y'); ?></p>
+    </div>
 
 
     <?php wp_footer(); ?>

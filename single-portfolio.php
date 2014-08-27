@@ -41,6 +41,6 @@
       <?php endwhile; // end of the loop. ?>
     </div>
   </div> <!-- /.innerWrapper -->
-</div> <!-- /.section -->
+</section> <!-- /.section -->
 
 <?php get_footer(); ?>
