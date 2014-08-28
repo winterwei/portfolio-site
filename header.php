@@ -78,8 +78,8 @@
         <ul class="main-nav-menu">
           <li><a data-id="about" class="non-home" href="<?php echo home_url( '/' ); ?>#about">About</a></li>
           <li><a data-id="skills" class="non-home" href="<?php echo home_url( '/' ); ?>#skills">Skills</a></li>
-          <li><a data-id="portfolio" href="<?php echo home_url( '/' ); ?>#portfolio">Portfolio</a></li>
-          <li><a data-id="blog" href="<?php echo home_url( '/' ); ?>#blog">Blog</a></li>
+          <li><a data-id="portfolio" href="<?php echo home_url( '/' ); ?>portfolio">Portfolio</a></li>
+          <li><a data-id="blog" href="<?php echo home_url( '/' ); ?>blog">Blog</a></li>
           <li><a data-id="contact" href="<?php echo home_url( '/' ); ?>#contact">Contact</a></li>
         </ul>
       </nav>

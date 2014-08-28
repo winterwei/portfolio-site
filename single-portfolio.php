@@ -33,7 +33,7 @@
         ?>
 
         <h3 class="taxonomy">
-          <strong>Technologies used:</strong> <span><?php echo $technologies_used; ?></span>
+          <strong>Skills and Technologies:</strong> <span><?php echo $technologies_used; ?></span>
         </h3>
 
         <?php endif; ?>

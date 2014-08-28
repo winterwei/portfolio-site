@@ -84,8 +84,10 @@ get_header();  ?>
         <?php 
           $portfolioQuery = new WP_Query(
               array(
-                'posts_per_page' => 4,
-                'post_type' => 'portfolio'
+                'posts_per_page' => 6,
+                'post_type' => 'portfolio',
+                'orderby' => 'date', 
+                'order' => 'ASC'
                 )
             ); ?>
         <?php while ($portfolioQuery->have_posts()) : $portfolioQuery->the_post(); ?>
