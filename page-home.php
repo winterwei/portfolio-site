@@ -94,12 +94,12 @@ get_header();  ?>
               <figure>
                 <?php the_post_thumbnail('full'); ?>
                 <figcaption class="hover clearfix">
-                  <h4><?php the_field('portfolio_title') ?></h4>
+                  <h4><?php the_title(); ?></h4>
                   <p><?php the_field('short_description') ?></p>
                 </figcaption>
               </figure>
               <figcaption class="no-hover clearfix">
-                <h4><?php the_field('portfolio_title') ?></h4>
+                <h4><?php the_title(); ?></h4>
                 <p><?php the_field('short_description') ?></p>
                 <div>
                 <a class="no-hover-link" href="<?php the_permalink(); ?>">See Details</a>

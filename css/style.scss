@@ -111,6 +111,7 @@ p {
 a {
   color:$link;
   text-decoration: none;
+  transition:all 0.3s ease-in-out;
 }
 
 li {
@@ -515,7 +516,7 @@ section.blog {
       a {
         //@include button-style;
         font-family: Oswald;
-        padding: 5px 20px 5px 0;
+        padding: 10px 40px 10px 0;
         margin-top: 30px;
         font-size:16px;
         &:hover {
@@ -524,9 +525,9 @@ section.blog {
         }
       }
     }
-    &:hover {
-      background-color: $theBlue;
-    }
+    // &:hover {
+    //   background-color: $theBlue;
+    // }
   }
   padding-bottom: 30px;
 }
@@ -598,6 +599,7 @@ section.contact {
     
     margin-top:10px;
     @include button-style;
+    transition: all 0.3s ease-in-out;
     &:hover {
       @include button-hover-style;
     }
@@ -633,17 +635,18 @@ footer {
       font-family: Lato;
       @include fontify(14px, 100, 0px, 1.2em);
     }
-  } 
+  }
   .social-media {
     // text-align: left;
     p.fa {
       margin: 5px auto;
       a {
-        color:lighten($link,10);    
+        color:lighten($link,10); 
       }
       i {
         font-size: 24px;
         margin: 0 10px;
+        transition: all 0.3s ease-in-out;   
         &:hover {
           color:$link;
         }
