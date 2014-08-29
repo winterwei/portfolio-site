@@ -9,7 +9,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-  
+  <meta property="og:site_name"
+  content="Winter Wei - Front-end Web Developer, Illustrator, UX Designer" />
+  <meta property="og:url" content="http://winterwei.com/">
+  <meta property="og:description" content="Winter is a Toronto-based front-end web developer and illustrator who is passionate about digital product and web application design and development, and cares deeply about UX. Currently on a mission to make the web a better place in both function and form.">
   <title><?php  wp_title( '| ', true, 'right' );  ?></title>
   <?php // Load our CSS ?>
   <link rel="stylesheet" type="text/css"  href="<?php bloginfo( 'stylesheet_url' ); ?>" />
